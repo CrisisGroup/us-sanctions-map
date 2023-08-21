@@ -53,7 +53,7 @@ $(document).ready(function(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daltonwb/cllkw69kg029401qr67uyg9h3',
+    style: 'mapbox://styles/daltonwb/clll21b1f02as01qrd3k19iv0',
     center: [-12.10634, 40.71023],
     zoom: 3,
     bearing: 0,
@@ -89,26 +89,11 @@ map.on('load', () => {
         easing: n => n
     });
 
-    // Globe atmosphere
-
 		map.addSource('sanctions', {
 				type: 'vector',
 				url: 'mapbox://daltonwb.9b8gvi9l'
 		});
-
-				// Add the stroke layer
-				map.addLayer({
-			'id': 'stroke-layer',
-			'type': 'line',
-			'source': 'sanctions',
-			'source-layer': 'optimized_sanctions_data-9kctpw',
-			'paint': {
-				'line-color': '#bdbdbd', // Adjust this to your desired stroke color
-				'line-width': 2 // Adjust this to your desired stroke width in pixels
-			},
-			'filter': ['==', '$type', 'Polygon'] // Apply this layer only to polygons
-		});
-
+		
 		map.addLayer({
 				'id': 'sanctions-layer',
 				'type': 'fill',
@@ -130,11 +115,11 @@ map.on('load', () => {
 							"address"
 						],
 						1,
-						"#f0dbb7",
+						"rgba(240, 219, 183, 0.8)",
 						1461,
-						"#d6a44c",
+						"rgba(214, 164, 76, 0.8)",
 						2920,
-						"#e87722"
+						"rgba(232, 119, 34, 0.8)"
 					]
 				}
 		});
