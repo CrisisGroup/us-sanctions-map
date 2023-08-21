@@ -5,7 +5,7 @@
 	<html>
 	<head>
 	<meta charset="utf-8">
-	<title>Global Climate Financing</title>
+	<title>Global U.S. Sanctions</title>
 	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 	<link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
 	<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
@@ -54,11 +54,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAO
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/daltonwb/cllkw69kg029401qr67uyg9h3',
-    center: [-2.215414, 32.025203],
-    zoom: 2.75,
-    bearing: 18.4,
+    center: [-12.10634, 40.71023],
+    zoom: 3,
+    bearing: 0,
     projection: 'globe',
-    pitch: 42.35,
+    pitch: 0,
     attributionControl: false
 });
 
@@ -96,32 +96,46 @@ map.on('load', () => {
 				url: 'mapbox://daltonwb.9b8gvi9l'
 		});
 
+				// Add the stroke layer
+				map.addLayer({
+			'id': 'stroke-layer',
+			'type': 'line',
+			'source': 'sanctions',
+			'source-layer': 'optimized_sanctions_data-9kctpw',
+			'paint': {
+				'line-color': '#bdbdbd', // Adjust this to your desired stroke color
+				'line-width': 2 // Adjust this to your desired stroke width in pixels
+			},
+			'filter': ['==', '$type', 'Polygon'] // Apply this layer only to polygons
+		});
+
 		map.addLayer({
 				'id': 'sanctions-layer',
 				'type': 'fill',
 				'source': 'sanctions',
 				'source-layer': 'optimized_sanctions_data-9kctpw',
 				'paint': {
-  				'fill-color': [
-  "interpolate",
-  [
-    "cubic-bezier",
-    1,
-    1,
-    1,
-    1
-  ],
-  [
-    "get",
-    "address"
-  ],
-  1,
-  "#f0dbb7",
-  1461,
-  "#d6a44c",
-  2920,
-  "#e87722"
-]
+  				'fill-color': 
+					[
+						"interpolate",
+						[
+							"cubic-bezier",
+							1,
+							1,
+							1,
+							1
+						],
+						[
+							"get",
+							"address"
+						],
+						1,
+						"#f0dbb7",
+						1461,
+						"#d6a44c",
+						2920,
+						"#e87722"
+					]
 				}
 		});
 
