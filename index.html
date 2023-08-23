@@ -51,7 +51,7 @@ $(document).ready(function(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daltonwb/cllnx0uc4004n01p935ro7ya9',
+    style: 'mapbox://styles/daltonwb/cllny150b005201qian914qik',
     center: [-12.10634, 40.71023],
     zoom: 3,
     bearing: 0,
@@ -89,7 +89,7 @@ map.on('load', () => {
         easing: n => n
     });
 
-		map.addSource('sanctions', {
+/* 		map.addSource('sanctions', {
 				type: 'vector',
 				url: 'mapbox://daltonwb.8t9r8d88'
 		});
@@ -169,8 +169,8 @@ map.on('load', () => {
 		map.on('mouseleave', 'sanctions-layer', () => {
 			map.getCanvas().style.cursor = '';
 		});
-
-});
+*/
+}); 
 
 
 
