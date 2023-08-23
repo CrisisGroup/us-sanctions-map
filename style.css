@@ -18,7 +18,7 @@ body {
     z-index: 9999;
     width: 250px;
     text-align: left;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     margin-bottom: 30px;
     text-transform: capitalize;
 }
@@ -87,7 +87,7 @@ a {
         color: #FFF;
         width: auto;
         font-weight: bold;
-        font-family: "Raleway", sans-serif;
+        font-family: "franklin-gothic-urw", sans-serif;
         border-radius: 8px;
         margin: 10px 0 0 10px;
         letter-spacing: .1em;
@@ -110,9 +110,9 @@ a {
 }
 
 h1 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 32px;
     line-height: 28px;
     padding: 0;
     margin: 0;
@@ -129,32 +129,44 @@ h1 {
 
 
 h2 {
-    font-family: 'Raleway', sans-serif;
-    color: #bed2ff;
+    font-family: 'franklin-gothic-urw', sans-serif;
+    color: #fff;
     font-size: 16px;
     margin-top: 0;
 }
 
+hr {
+    height: 5px;
+    width: 30px;
+    text-align: left;
+    background-color: #fff;
+    border: none;
+    margin: 0;
+}
+
 h4.infobox-name {
-    font-size: 26px;
+    font-size: 32px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
     line-height: 1.4em;
+    letter-spacing: 0.05em;
+    color: #b8b7ba;
 }
 
 h4.infobox-date {
     font-size: 20px;
     margin-bottom: 10px;
     display: inline;
-    font-family: 'Inter', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
 }
 
 p.infobox-dateline {
     margin: 0;
     display: inline;
-    font-family: 'Inter', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     font-size: 18px;
 }
 
@@ -164,22 +176,44 @@ p.infobox-dateline {
 
 #tagline {
     vertical-align: middle;
-    color: #bed2ff;
-    font-family: 'Inter', sans-serif;
+    color: #fff;
     width: 270px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+#legend-tagline {
+    vertical-align: middle;
+    color: #fff;
+    width: 270px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    font-style: italic;
+}
+
+#legend-instruct {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    width: 200px;
 }
 
 .box {
-    background: #313946;
+    background: #111923;
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 1;
-    border-radius: 4px;
-    padding: 16px;
+    border-radius: 30px;
+    padding: 30px 15px 0 30px;
+    border: solid .75px #fff;
     box-shadow: 0 0px 16px rgb(0 0 0 / 48%);
-    font-family: 'Raleway', sans-serif;
-    color: #bed2ff;
+    font-family: 'franklin-gothic-urw', sans-serif;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -206,10 +240,12 @@ ul {
 
 .mapboxgl-popup-content {
     position: relative;
-    background: rgba(6, 34, 90, .6);
+    background: #111923;
+    border-radius: 30px;
+    border: solid .75px #fff;
     box-shadow: 0 1px 30px rgb(0 0 0 / 25%);
     padding: 20px;
-    pointer-events: auto;
+    cursor: pointer;
     color: #ffffff;
     width: 300px;
 }
@@ -228,11 +264,11 @@ ul {
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
     align-self: center;
     border-bottom: none;
-    border-top-color: #06B0F2;
+    border-top-color: #fff;
 }
 
 .threat-vectors {
-    font-family: 'Inter', sans-serif;
+    font-family: 'franklin-gothic-urw', sans-serif;
     font-size: 18px;
     margin-top: 10px;
     width: auto;
@@ -244,7 +280,7 @@ ul {
     max-width: 100%;
     z-index: 1;
     opacity: 1;
-    pointer-events: none;
+    cursor: none;
     border: solid .5px #ccc;
 }
 
