@@ -51,7 +51,7 @@ $(document).ready(function(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daltonwb/clll34c4c00cv01p2hsm35qy5',
+    style: 'mapbox://styles/daltonwb/cllnvbc24004401qbftem14ci',
     center: [-12.10634, 40.71023],
     zoom: 3,
     bearing: 0,
@@ -99,26 +99,34 @@ map.on('load', () => {
 				'source-layer': 'optimized_sanctions_data-9kctpw',
 				'paint': {
   				'fill-color': 
-					[
-						"interpolate",
-						[
-							"cubic-bezier",
+				  [
+							"interpolate",
+							["linear"],
+							[
+								"get",
+								"address"
+							],
 							1,
-							1,
-							1,
-							1
-						],
-						[
-							"get",
-							"address"
-						],
-						1,
-						"rgba(240, 219, 183, 0.8)",
-						1461,
-						"rgba(214, 164, 76, 0.8)",
-						2920,
-						"rgba(232, 119, 34, 0.8)"
-					]
+							"rgba(253, 241, 233, 0.9)",
+							25,
+							"rgba(250, 228, 211, 0.9)",
+							50,
+							"rgba(248, 214, 189, 0.9)",
+							75,
+							"rgba(246, 201, 167, 0.9)",
+							100,
+							"rgba(243, 187, 144, 0.9)",
+							438,
+							"rgba(241, 173, 122, 0.9)",
+							876,
+							"rgba(239, 160, 100, 0.9)",
+							1314,
+							"rgba(237, 146, 78, 0.9)",
+							1752,
+							"rgba(232, 119, 34, 0.9)",
+							2920,
+							"rgba(190, 69, 0, 0.9)"
+						]
 				}
 		});
 
