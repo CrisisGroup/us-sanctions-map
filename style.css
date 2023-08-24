@@ -177,7 +177,7 @@ p.infobox-dateline {
 #tagline {
     vertical-align: middle;
     color: #fff;
-    width: 270px;
+    width: 390px;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
@@ -201,6 +201,32 @@ p.infobox-dateline {
     line-height: 1.2;
     width: 200px;
 }
+
+.color-line {
+    display: flex;
+    height: 20px; /* Adjust the height as needed */
+    width: 100%; /* Set the line width */
+  }
+
+  .color-part {
+    flex: 1;
+    height: 100%;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .color-part:nth-child(1) {
+    background-color: #f3bb91;
+    color: #111923;
+  }
+
+  .color-part:nth-child(2) {
+    background-color: #e87722;
+  }
+
+  .color-part:nth-child(3) {
+    background-color: #be4500;
+  }
 
 .box {
     background: #111923;
