@@ -39,7 +39,7 @@ $(document).ready(function(){
     <div class="color-part">LOW</div>
     <div class="color-part">MEDIUM</div>
     <div class="color-part">HIGH</div>
-  </div>
+</div>
 
   <button id="toggleButton">Toggle Country Names</button>
 <!-- <ul id="legend">
@@ -104,7 +104,8 @@ map.on('load', () => {
 				"coalesce",
 				["get", "name_en"],
 				["get", "name"]
-			], // Display the place names
+			],
+			'visibility': 'none',
 			'text-anchor': 'center',
 			'text-radial-offset': ["step", ["zoom"], 0.6, 8, 0],
 			'text-justify': [
@@ -194,17 +195,17 @@ map.on('load', () => {
 		]
 	});
 
-		var toggleButton = document.getElementById('toggleButton');
-    toggleButton.addEventListener('click', function () {
-      var layerId = 'country-label-custom'; // Replace with your layer's ID
-      var visibility = map.getLayoutProperty(layerId, 'visibility');
+	var toggleButton = document.getElementById('toggleButton');
+	toggleButton.addEventListener('click', function () {
+		var layerId = 'country-label-custom'; // Replace with your layer's ID
+		var visibility = map.getLayoutProperty(layerId, 'visibility');
 
-      if (visibility === 'visible') {
-        map.setLayoutProperty(layerId, 'visibility', 'none');
-      } else {
-        map.setLayoutProperty(layerId, 'visibility', 'visible');
-      }
-    });
+		if (visibility === 'visible') {
+			map.setLayoutProperty(layerId, 'visibility', 'none');
+		} else {
+			map.setLayoutProperty(layerId, 'visibility', 'visible');
+		}
+	});
 
 				/* map.on('click', 'sanctions-layer', (e) => {
 					new AnimatedPopup({
