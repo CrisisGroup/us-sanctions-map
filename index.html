@@ -30,13 +30,10 @@ $(document).ready(function(){
 <div id="mobilemenubtn"> MENU </div>
 <div class="box">
 
-<h1>U.S. Sanctions</h1>
-<p id="tagline">This map shows....</p>
-<p id="tagline">Lorem ipsum dolor amet</p>
-<p id="tagline">Lorem ipsum dolor amet</p>
+<h1>The Reach of U.S. Sanctions</h1>
+<p id="tagline">This map shows the addresses of individuals and entities who are sanctioned by the U.S. Treasury, by country. The darker the country, the higher the number of sanctions targets in that country.</p>
 <hr />
 <p id="legend-tagline"><strong>LEGEND</strong></p>
-<p id="legend-instruct">Click on a country to see more.</p>
 <ul id="legend">
 <li><div><span style='background-color: hsla(38, 66%, 83%, 0.4); border: solid 1px #fff; border-radius: 100px; width: 15px; height: 15px;'></span>Less than 10</div></li>
 <li><div><span style='background-color: #d6a44c; border: solid 1px #fff; border-radius: 100px; width: 15px; height: 15px;'></span>More than 100</div></li>
@@ -51,7 +48,7 @@ $(document).ready(function(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daltonwb/cllny150b005201qian914qik',
+    style: 'mapbox://styles/daltonwb/cllozd4rl003j01pj4nk13mah',
     center: [-12.10634, 40.71023],
     zoom: 3,
     bearing: 0,
@@ -75,7 +72,7 @@ map.addControl(new mapboxgl.NavigationControl({
     visualizePitch: true
 }));
 map.addControl(new mapboxgl.AttributionControl({
-    customAttribution: 'International Crisis Group | Data: <a href="" target="_blank">OFAC</a>'
+    customAttribution: 'International Crisis Group | Data: <a href="https://ofac.treasury.gov/specially-designated-nationals-list-data-formats-data-schemas" target="_blank">U.S. Treasury Department</a>'
 }));
 
 // PASSIVE ROTATION
