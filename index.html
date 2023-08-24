@@ -40,6 +40,8 @@ $(document).ready(function(){
     <div class="color-part">MEDIUM</div>
     <div class="color-part">HIGH</div>
   </div>
+
+  <button id="toggleButton">Toggle Country Names</button>
 <!-- <ul id="legend">
 <li><div><span style='background-color: hsla(38, 66%, 83%, 0.4); border: solid 1px #fff; border-radius: 100px; width: 15px; height: 15px;'></span>Less than 10</div></li>
 <li><div><span style='background-color: #d6a44c; border: solid 1px #fff; border-radius: 100px; width: 15px; height: 15px;'></span>More than 100</div></li>
@@ -54,13 +56,13 @@ $(document).ready(function(){
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFsdG9ud2IiLCJhIjoiOWdSSXFQSSJ9.HZyjh4g3TAAOAncwelv9Vw';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daltonwb/cllozd4rl003j01pj4nk13mah',
+    style: 'mapbox://styles/daltonwb/cllpgto7z00et01qbclrofjb6',
     center: [-12.10634, 40.71023],
     zoom: 3,
     bearing: 0,
     projection: 'globe',
     pitch: 0,
-	maxZoom: 5, // Set the maximum allowed zoom level
+	maxZoom: 5, 
     minZoom: 3, 
     attributionControl: false
 });
@@ -92,50 +94,119 @@ map.on('load', () => {
         easing: n => n
     });
 
-/* 		map.addSource('sanctions', {
-				type: 'vector',
-				url: 'mapbox://daltonwb.8t9r8d88'
-		});
+	map.addLayer({
+		id: 'country-label-custom', // Layer ID
+		type: 'symbol',
+		source: 'composite',
+		'source-layer': 'place_label', // Source layer from the "composite" source
+		layout: {
+			'text-field': [
+				"coalesce",
+				["get", "name_en"],
+				["get", "name"]
+			], // Display the place names
+			'text-anchor': 'center',
+			'text-radial-offset': ["step", ["zoom"], 0.6, 8, 0],
+			'text-justify': [
+				"step",
+				["zoom"],
+				[
+					"match",
+					["get", "text_anchor"],
+					[
+						"left",
+						"bottom-left",
+						"top-left"
+					],
+					"left",
+					[
+						"right",
+						"bottom-right",
+						"top-right"
+					],
+					"right",
+					"center"
+				],
+				7,
+				"auto"
+			],
+			'text-max-width': 8,
+			'text-line-height': 1.1,
+			'text-letter-spacing': 0.15,
+			'text-size': [
+				"interpolate",
+				[
+					"cubic-bezier",
+					0.2,
+					0,
+					0.7,
+					1
+				],
+				["zoom"],
+				1,
+				[
+					"step",
+					["get", "symbolrank"],
+					11,
+					4,
+					9,
+					5,
+					8
+				],
+				9,
+				[
+					"step",
+					["get", "symbolrank"],
+					22,
+					4,
+					19,
+					5,
+					17
+				]
+			],
+			'text-font': [
+				"Helvetica Neue LT Pro 750 Italic",
+				"Arial Unicode MS Regular"
+			],
+			'text-transform': 'uppercase',
+		},
+		paint: {
+			'text-color': '#fcfcfc',
+			'text-halo-color': 'rgba(255, 255, 255, 1)',
+			'text-halo-width': 0,
+			'text-halo-blur': 0.1,
+		},
+		filter: [
+			"match",
+			["get", "class"],
+			[
+				"country",
+				"disputed_country"
+			],
+			[
+				"match",
+				["get", "worldview"],
+				["all", "US"],
+				true,
+				false
+			],
+			false
+		]
+	});
 
-		map.addLayer({
-				'id': 'sanctions-layer',
-				'type': 'fill',
-				'source': 'sanctions',
-				'source-layer': 'sanctions_global_v3-38qz0x',
-				'paint': {
-  				'fill-color': 
-				  [
-							"interpolate",
-							["linear"],
-							[
-								"get",
-								"address"
-							],
-							1,
-							"rgba(253, 241, 233, 0.6)",
-							25,
-							"rgba(250, 228, 211, 0.6)",
-							50,
-							"rgba(248, 214, 189, 0.6)",
-							75,
-							"rgba(246, 201, 167, 0.6)",
-							100,
-							"rgba(243, 187, 144, 0.6)",
-							438,
-							"rgba(241, 173, 122, 0.6)",
-							876,
-							"rgba(239, 160, 100, 0.6)",
-							1314,
-							"rgba(237, 146, 78, 0.6)",
-							1752,
-							"rgba(232, 119, 34, 0.6)",
-							2920,
-							"rgba(190, 69, 0, 0.6)"
-						]
-				}
-		});
+		var toggleButton = document.getElementById('toggleButton');
+    toggleButton.addEventListener('click', function () {
+      var layerId = 'country-label-custom'; // Replace with your layer's ID
+      var visibility = map.getLayoutProperty(layerId, 'visibility');
 
-				map.on('click', 'sanctions-layer', (e) => {
+      if (visibility === 'visible') {
+        map.setLayoutProperty(layerId, 'visibility', 'none');
+      } else {
+        map.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+    });
+
+				/* map.on('click', 'sanctions-layer', (e) => {
 					new AnimatedPopup({
 			            offset: [0, -15],
 									openingAnimation: {
@@ -171,8 +242,8 @@ map.on('load', () => {
 		// when it leaves the states layer.
 		map.on('mouseleave', 'sanctions-layer', () => {
 			map.getCanvas().style.cursor = '';
-		});
-*/
+		}); */
+
 }); 
 
 
